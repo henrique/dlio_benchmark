@@ -10,7 +10,4 @@ RUN apt-get update && \
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m venv /workspace/venv
 ENV PATH="/workspace/venv/bin:$PATH"
-RUN pip install -v .[test] > /workspace/install.log 2>&1
-
-
-
+RUN pip install -v .[test] 2>&1 | tee /workspace/install.log
